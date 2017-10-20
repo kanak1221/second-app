@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Form Validations</h2>
+  <form #formname="ngForm" (ngSubmit)="valid(formname.value)" novalidate>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" name="name" required  minlength="4"  class="form-control" ngModel #nameRef="ngModel">
+      <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+           <div [hidden]="!nameRef.errors.required">
+                 Please Enter Name
+           </div>
+           <div [hidden]="!nameRef.errors.minlength">
+            Please Enter minimum 4 letters
+           </div> 
+           
+      </div>
+        
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" class="form-control" required  minlength="4"  class="form-control" [(ngModel)]="name" #emailRef="ngModel">
+      <div *ngIf="emailRef.errors && (emailRef.dirty || emailRef.touched)" class="alert alert-danger">
+          <div [hidden]="!emailRef.errors.required">
+                Please Enter Name
+          </div>
+          <div [hidden]="!emailRef.errors.minlength">
+           Please Enter minimum 4 letters
+          </div> 
+          
+     </div>
+    </div>
+    <div class="form-group">
+      <label>mobile</label>
+      <input type="text" name="mobile" class="form-control" ngModel pattern="^[1-9][0-9]{4}$" #mobileRef="ngModel">
+      <div *ngIf="mobileRef.errors && (mobileRef.dirty || mobileRef.touched)" class="alert alert-danger">
+        <div [hidden]="!mobileRef.errors.pattern">
+           Please Enter 5 digits
+        </div>
+      </div>
+      
+    </div>
+    <div ngModelGroup="address"> 
+      <div class="form-group">
+        <label>city</label>
+        <input type="text" name="city" class="form-control" ngModel required>
+      </div>
+      <div class="form-group">
+        <label>street</label>
+        <input type="text" name="street" class="form-control" ngModel required>
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" [disabled]="!formname.form.valid">submit</button>
+  </form>
+</div>

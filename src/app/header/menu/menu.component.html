@@ -1,0 +1,24 @@
+<p>
+  menu works!
+</p>
+<p>{{currency}}</p>
+<table>
+  <tr>
+      <th>h-no</th>
+      <th>r-name</th>
+      <th>city</th>
+  </tr>
+  
+  <tr *ngFor="let ad of adds ">
+    <td>{{ad.h_no}}</td>
+    <td>{{ad.rname}}</td>
+    <td>{{ad.city }}</td>
+  </tr>
+</table>
+<br>
+<p>{{adds | json}}</p>
+<br>
+<p>{{birthday | date }}</p>
+<br>
+<p>The hero's birthday is {{ birthday | date:format }}</p>
+<button (click)="toggleFormat()">Toggle Format</button>
