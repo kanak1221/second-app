@@ -43,3 +43,7 @@
     <button type="submit" class="btn btn-primary" [disabled]="!formname.form.valid">submit</button>
   </form>
 </div>
+
+<div>
+  {{formname.value | json}}
+</div>
