@@ -3,7 +3,7 @@
   <form #formname="ngForm" (ngSubmit)="valid(formname.value)" novalidate>
     <div class="form-group">
       <label>Name</label>
-      <input type="text" name="name" required  minlength="4"  class="form-control" ngModel #nameRef="ngModel">
+      <input type="text" name="name" required  minlength="4"  class="form-control" [(ngModel)]="name" #nameRef="ngModel">
       <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
            <div [hidden]="!nameRef.errors.required">
                  Please Enter Name
